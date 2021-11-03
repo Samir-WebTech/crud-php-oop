@@ -59,7 +59,7 @@
             <td>Action</td>
         </tr>
         <?php
-        $db = new database();
+        $db = new database($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
         $query = "SELECT * FROM test_table";
         $read = $db->select($query);
         if($read){

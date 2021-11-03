@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php 
-$db = new database();
+$db = new database($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
 if(isset($_POST['insert'])){
     $username = $_POST['username'];
     if($username){

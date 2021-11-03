@@ -1,15 +1,19 @@
 <?php
     include_once('config.php');
     class  database{
-       public $host =  DB_HOST;
-       public $user =  DB_USER;
-       public $pass =  DB_PASS;
-       public $dbname =  DB_NAME;
+       public $host; 
+       public $user;
+       public $pass;
+       public $dbname;
 
 
        public $link;
        public $error;
-       public function __construct(){
+       public function __construct($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db){
+           $this->host = $cleardb_server;
+           $this->user = $cleardb_username;
+           $this->pass = $cleardb_password;
+           $this->dbname = $cleardb_db;
            $this->connection();
        }
        private function connection(){

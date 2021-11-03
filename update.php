@@ -1,11 +1,10 @@
 <?php include_once("config/config.php");  ?>
 <?php include_once("config/database.php"); ?>
 <?php
+$db = new database($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
 if(isset($_POST['update'])){
     $uid = $_POST['userid'];
     $uname = $_POST['username'];
-    $db = new database();
-
     $query = "UPDATE `test_table` 
     SET `user` = '$uname' 
     WHERE `test_table`.`id` = $uid"; 
@@ -33,7 +32,6 @@ if(isset($_POST['update'])){
     <?php 
     if($_GET['editid']){
         $userid = $_GET['editid'];
-        $db = new database();
         $query = "SELECT * FROM test_table WHERE id=$userid";
         $read = $db->select($query);
         if($read){?>

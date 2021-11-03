@@ -3,7 +3,7 @@
 <?php 
 if(isset($_GET['delid'])){
     $id = $_GET['delid'];
-    $db = new database();
+    $db = new database($cleardb_server,$cleardb_username,$cleardb_password,$cleardb_db);
     $query = "DELETE FROM test_table WHERE id=$id";
     $result = $db->delete($query);
     $message = "";
